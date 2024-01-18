@@ -1,0 +1,5 @@
+Sitegeist:
+  Flow:
+    OpenAiClientFactory:
+      apiKey: ~
+      organisation: ~
