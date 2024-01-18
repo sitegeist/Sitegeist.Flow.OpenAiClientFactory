@@ -4,7 +4,7 @@ declare(strict_types=1);
 namespace Sitegeist\Flow\OpenAiClientFactory;
 
 use Neos\Flow\Annotations as Flow;
-use OpenAI\Client;
+use OpenAI\Contracts\ClientContract;
 use OpenAI\Factory;
 use Psr\Http\Client\ClientInterface;
 
@@ -19,7 +19,7 @@ class OpenAiClientFactory
     #[Flow\Inject]
     protected ClientInterface $client;
 
-    public function createClient(): Client
+    public function createClient(): ClientContract
     {
         $factory = (new Factory())
             ->withHttpClient($this->client)
