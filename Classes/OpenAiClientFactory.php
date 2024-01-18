@@ -11,10 +11,10 @@ use Psr\Http\Client\ClientInterface;
 class OpenAiClientFactory
 {
     #[Flow\InjectConfiguration(path: 'apiKey')]
-    protected string $apiKey = '';
+    protected ?string $apiKey = '';
 
     #[Flow\InjectConfiguration(path: 'organisation')]
-    protected string $organisation = '';
+    protected ?string $organisation = '';
 
     #[Flow\Inject]
     protected ClientInterface $client;

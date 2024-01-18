@@ -1,6 +1,3 @@
 OpenAI\Client:
-  properties:
-    cache:
-      object:
-        factoryObjectName: Sitegeist\Flow\OpenAiClientFactory\OpenAiClientFactory
-        factoryMethodName: createClient
+  factoryObjectName: Sitegeist\Flow\OpenAiClientFactory\OpenAiClientFactory
+  factoryMethodName: createClient
