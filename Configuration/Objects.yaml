@@ -1,7 +1,0 @@
-OpenAI\Client:
-  factoryObjectName: Sitegeist\Flow\OpenAiClientFactory\OpenAiClientFactory
-  factoryMethodName: createClient
-
-OpenAI\Contracts\ClientContract:
-  factoryObjectName: Sitegeist\Flow\OpenAiClientFactory\OpenAiClientFactory
-  factoryMethodName: createClient

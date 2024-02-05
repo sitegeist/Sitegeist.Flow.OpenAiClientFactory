@@ -3,6 +3,5 @@ Sitegeist:
     OpenAiClientFactory:
       accounts: []
         # name:
-        #  discriminator: 'aja-%ENV:ENVIRONMENT_NAME%'
         #  apiKey: ~
         #  organisation: ~

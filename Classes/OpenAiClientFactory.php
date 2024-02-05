@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace Sitegeist\Flow\OpenAiClientFactory;
@@ -10,22 +11,16 @@ use Psr\Http\Client\ClientInterface;
 
 class OpenAiClientFactory
 {
-    #[Flow\InjectConfiguration(path: 'apiKey')]
-    protected ?string $apiKey = '';
-
-    #[Flow\InjectConfiguration(path: 'organisation')]
-    protected ?string $organisation = '';
-
     #[Flow\Inject]
-    protected ClientInterface $client;
+    protected ClientInterface $httpClient;
 
-    public function createClient(): ClientContract
+    public function createClientForAccountRecord(AccountRecord $record): ClientContract
     {
         $factory = (new Factory())
-            ->withHttpClient($this->client)
-            ->withApiKey($this->apiKey)
+            ->withHttpClient($this->httpClient)
+            ->withApiKey($record->apiKey)
             ->withHttpHeader('OpenAI-Beta', 'assistants=v1')
-            ->withOrganization($this->organisation);
+            ->withOrganization($record->organisation);
         return $factory->make();
     }
 }
