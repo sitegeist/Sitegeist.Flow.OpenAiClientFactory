@@ -1,5 +1,8 @@
 Sitegeist:
   Flow:
     OpenAiClientFactory:
-      apiKey: ~
-      organisation: ~
+      accounts: []
+        # name:
+        #  discriminator: 'aja-%ENV:ENVIRONMENT_NAME%'
+        #  apiKey: ~
+        #  organisation: ~
