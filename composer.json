@@ -4,7 +4,7 @@
     "name": "sitegeist/flow-openaiclientfactory",
     "require": {
         "neos/flow": "*",
-        "openai-php/client": "^0.8"
+        "openai-php/client": "^0.10.1"
     },
     "autoload": {
         "psr-4": {
