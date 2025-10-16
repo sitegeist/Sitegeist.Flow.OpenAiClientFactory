@@ -19,7 +19,6 @@ class OpenAiClientFactory
         $factory = (new Factory())
             ->withHttpClient($this->httpClient)
             ->withApiKey($record->apiKey)
-            ->withHttpHeader('OpenAI-Beta', 'assistants=v2')
             ->withOrganization($record->organisation);
         return $factory->make();
     }
