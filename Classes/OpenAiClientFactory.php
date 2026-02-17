@@ -26,8 +26,20 @@ class OpenAiClientFactory
     {
         $factory = (new Factory())
             ->withHttpClient($this->httpClient)
-            ->withApiKey($record->apiKey)
-            ->withOrganization($record->organisation);
+            ->withApiKey($record->apiKey);
+        if ($record->organisation !== null) {
+            $factory = $factory->withOrganization($record->organisation);
+        }
+        if ($record->baseUri !== null) {
+            $factory = $factory->withBaseUri($record->baseUri);
+        }
+        foreach ($record->additionalHeaders as $header => $value) {
+            $factory = $factory->withHttpHeader($header, $value);
+        }
+        foreach ($record->additionalQueryParams as $param => $value) {
+            $factory = $factory->withQueryParam($param, $value);
+        }
+
         return $factory->make();
     }
 }

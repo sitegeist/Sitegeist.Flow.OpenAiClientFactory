@@ -9,10 +9,17 @@ use Neos\Flow\Annotations as Flow;
 #[Flow\Proxy(false)]
 class AccountRecord
 {
+    /**
+     * @param array<string, string> $additionalHeaders
+     * @param array<string, string> $additionalQueryParams
+     */
     public function __construct(
         public readonly string $name,
         public readonly string $apiKey,
-        public readonly string $organisation,
+        public readonly ?string $organisation,
+        public readonly ?string $baseUri = null,
+        public readonly array $additionalHeaders = [],
+        public readonly array $additionalQueryParams = [],
     ) {
     }
 
@@ -24,7 +31,10 @@ class AccountRecord
         return new self(
             $name,
             $configuration['apiKey'],
-            $configuration['organisation'],
+            $configuration['organisation'] ?? null,
+            $configuration['baseUri'] ?? null,
+            $configuration['additionalHeaders'] ?? [],
+            $configuration['additionalQueryParams'] ?? [],
         );
     }
 }
