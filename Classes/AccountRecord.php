@@ -12,6 +12,7 @@ class AccountRecord
     /**
      * @param array<string, string> $additionalHeaders
      * @param array<string, string> $additionalQueryParams
+     * @param array<string> $models
      */
     public function __construct(
         public readonly string $name,
@@ -20,6 +21,7 @@ class AccountRecord
         public readonly ?string $baseUri = null,
         public readonly array $additionalHeaders = [],
         public readonly array $additionalQueryParams = [],
+        public readonly ?array $models = null,
     ) {
     }
 
@@ -35,6 +37,7 @@ class AccountRecord
             $configuration['baseUri'] ?? null,
             $configuration['additionalHeaders'] ?? [],
             $configuration['additionalQueryParams'] ?? [],
+            $configuration['models'] ?? null,
         );
     }
 }
