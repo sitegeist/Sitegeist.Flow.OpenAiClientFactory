@@ -15,8 +15,8 @@ class AccountRecord
      */
     public function __construct(
         public readonly string $name,
-        public readonly string $apiKey,
-        public readonly ?string $organisation,
+        public readonly ?string $apiKey = null,
+        public readonly ?string $organisation = null,
         public readonly ?string $baseUri = null,
         public readonly array $additionalHeaders = [],
         public readonly array $additionalQueryParams = [],
@@ -30,7 +30,7 @@ class AccountRecord
     {
         return new self(
             $name,
-            $configuration['apiKey'],
+            $configuration['apiKey'] ?? null,
             $configuration['organisation'] ?? null,
             $configuration['baseUri'] ?? null,
             $configuration['additionalHeaders'] ?? [],
