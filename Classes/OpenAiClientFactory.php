@@ -24,10 +24,23 @@ class OpenAiClientFactory
 
     public function createClientForAccountRecord(AccountRecord $record): ClientContract
     {
-        $factory = (new Factory())
-            ->withHttpClient($this->httpClient)
-            ->withApiKey($record->apiKey)
-            ->withOrganization($record->organisation);
+        $factory = (new Factory())->withHttpClient($this->httpClient);
+        if ($record->apiKey !== null) {
+            $factory = $factory->withApiKey($record->apiKey);
+        }
+        if ($record->organisation !== null) {
+            $factory = $factory->withOrganization($record->organisation);
+        }
+        if ($record->baseUri !== null) {
+            $factory = $factory->withBaseUri($record->baseUri);
+        }
+        foreach ($record->additionalHeaders as $header => $value) {
+            $factory = $factory->withHttpHeader($header, $value);
+        }
+        foreach ($record->additionalQueryParams as $param => $value) {
+            $factory = $factory->withQueryParam($param, $value);
+        }
+
         return $factory->make();
     }
 }

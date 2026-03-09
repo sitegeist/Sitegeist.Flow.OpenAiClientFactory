@@ -2,6 +2,9 @@ Sitegeist:
   Flow:
     OpenAiClientFactory:
       accounts: []
-        # name:
-        #  apiKey: ~
-        #  organisation: ~
+#        __name__:
+#          apiKey: __id__ # string, required
+#          organisation: ~ # string|null, optional id of OpenAi org
+#          baseUri: ~ # string|null, optional, will override base uri
+#          additionalHeaders: ~  # key value pairs to be sent as http headers
+#          additionalQueryParams: ~ # key value pairs to be sent as query params
